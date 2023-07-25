@@ -12,4 +12,5 @@
     <color name="secondary_text_color">#7A8089</color>
 
     <color name="splashBackground">#007FFF</color>
+    <color name="authBackgroundColor">#000080</color>
 </resources>
