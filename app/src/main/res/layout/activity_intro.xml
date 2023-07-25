@@ -70,20 +70,28 @@
         android:textColor="@android:color/white"
         android:textSize="@dimen/btn_text_size" />
 
+    <!--    <Button-->
+    <!--        android:id="@+id/btn_sign_up_intro"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_gravity="center"-->
+    <!--        android:layout_marginStart="@dimen/btn_marginStartEnd"-->
+    <!--        android:layout_marginTop="@dimen/intro_screen_sign_up_btn_marginTop"-->
+    <!--        android:layout_marginEnd="@dimen/btn_marginStartEnd"-->
+    <!--        android:background="@drawable/outlinedbutton"-->
+    <!--        android:gravity="center"-->
+    <!--       android:textColor="@color/black"-->
+    <!--        android:text="@string/sign_up"-->
+    <!--        android:textSize="@dimen/btn_text_size" />-->
     <Button
         android:id="@+id/btn_sign_up_intro"
+        style="?attr/materialButtonOutlinedStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
         android:layout_marginStart="@dimen/btn_marginStartEnd"
-        android:layout_marginTop="@dimen/intro_screen_sign_up_btn_marginTop"
+        android:layout_marginTop="15dp"
         android:layout_marginEnd="@dimen/btn_marginStartEnd"
-        android:background="@drawable/outlinedbutton"
-        android:foreground="?attr/selectableItemBackground"
-        android:gravity="center"
-        android:paddingTop="@dimen/btn_paddingTopBottom"
-        android:paddingBottom="@dimen/btn_paddingTopBottom"
-        android:text="@string/sign_up"
-        android:textColor="@color/colorAccent"
-        android:textSize="@dimen/btn_text_size" />
+        android:text="Sign Up"
+        android:textSize="18sp"/>
+
 </LinearLayout>

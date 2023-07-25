@@ -5,12 +5,14 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="colorPrimary">#0C90F1</color>
+    <color name="colorPrimary">#0F1836</color>
+    <color name="colorDarkBlue">#162534</color>
     <color name="colorPrimaryDark">#0591F8</color>
     <color name="colorAccent">#0C90F1</color>
     <color name="primary_text_color">#363A43</color>
     <color name="secondary_text_color">#7A8089</color>
-
+    <color name="secondaryGreen">#00FF7F</color>
     <color name="splashBackground">#007FFF</color>
+    <color name="acqua">#c0e863</color>
     <color name="authBackgroundColor">#000080</color>
 </resources>
