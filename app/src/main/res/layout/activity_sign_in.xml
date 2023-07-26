@@ -8,7 +8,7 @@
     android:focusable="true"
     android:focusableInTouchMode="true"
     android:orientation="vertical"
-    tools:context=".signInActivity"
+    tools:context=".activities.signInActivity"
     tools:ignore="HardcodedText">
 
     <FrameLayout
@@ -127,7 +127,7 @@
             android:layout_marginEnd="32dp"
             android:backgroundTint="@color/acqua"
             android:shadowRadius="@integer/material_motion_duration_long_1"
-            android:text="Sign Up"
+            android:text="Sign In"
             android:textColor="@color/black" />
 
 
@@ -176,13 +176,14 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="I Have an Account ?" />
+                android:text="Don't have an Account ?" />
 
             <TextView
+                android:id="@+id/Registeruser"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text=" Log In"
+                android:text=" Register"
                 android:textColor="@color/acqua"
                 android:textSize="15sp"
                 android:textStyle="bold" />

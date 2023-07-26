@@ -15,4 +15,6 @@
     <color name="splashBackground">#007FFF</color>
     <color name="acqua">#c0e863</color>
     <color name="authBackgroundColor">#000080</color>
+    <color name="snackbar_error_color">#F72400</color>
+
 </resources>
