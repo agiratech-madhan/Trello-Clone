@@ -17,5 +17,8 @@ class IntroActivity : AppCompatActivity() {
             // Launch the sign up screen.
             startActivity(Intent(this@IntroActivity, signup::class.java))
         }
+        binding?.btnSignInIntro?.setOnClickListener {
+            startActivity(Intent(this@IntroActivity, signInActivity::class.java))
+        }
     }
 }
