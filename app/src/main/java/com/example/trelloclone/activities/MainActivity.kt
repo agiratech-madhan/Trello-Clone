@@ -7,8 +7,12 @@ import android.util.Log
 import android.view.MenuItem
 import android.view.View
 import android.widget.PopupMenu
+import androidx.fragment.app.Fragment
+import com.example.trelloclone.Home
 import com.example.trelloclone.R
 import com.example.trelloclone.databinding.ActivityMainBinding
+import com.example.trelloclone.profile
+import com.example.trelloclone.shop
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
@@ -32,6 +36,27 @@ class MainActivity : AppCompatActivity() {
 
 
             showPopupMenu(it)
+
+        }
+        replaceFragment(Home())
+
+
+        binding?.bottomNavigationView?.setOnItemSelectedListener {
+
+            when (it.itemId) {
+
+                R.id.home -> replaceFragment(Home())
+                R.id.profile -> replaceFragment(profile())
+                R.id.shop -> replaceFragment(shop())
+
+                else -> {
+
+
+                }
+
+            }
+
+            true
 
         }
     }
@@ -61,5 +86,15 @@ class MainActivity : AppCompatActivity() {
         }
 
         popupMenu.show()
+    }
+
+    private fun replaceFragment(fragment: Fragment) {
+
+        val fragmentManager = supportFragmentManager
+        val fragmentTransaction = fragmentManager.beginTransaction()
+        fragmentTransaction.replace(R.id.frame_layout, fragment)
+        fragmentTransaction.commit()
+
+
     }
 }
