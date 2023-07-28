@@ -20,7 +20,6 @@ class MainDataAdapter(
             itemBinding?.title?.text = task.title
             itemBinding?.subtitle?.text = task.subtitle
             itemBinding?.time?.text = task.time
-
         }
     }
 
@@ -34,7 +33,7 @@ class MainDataAdapter(
 
     override fun onBindViewHolder(holder: MainViewHolder, position: Int) {
         val task = taskList[position]
-        Log.d("Loading Data",taskList[position].toString())
+        Log.d("Loading Data", taskList[position].toString())
         holder.bindItem(task)
 
     }
@@ -44,3 +43,6 @@ class MainDataAdapter(
 
     }
 }
+
+
+
