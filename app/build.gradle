@@ -35,6 +35,7 @@ android {
     buildFeatures {
         viewBinding true
     }
+
 }
 
 dependencies {
@@ -50,6 +51,14 @@ dependencies {
     implementation("com.google.firebase:firebase-auth-ktx")
     implementation("com.google.android.gms:play-services-auth:20.6.0")
     implementation 'com.google.code.gson:gson:2.10.1'
+    //for Http
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+    //Converter
+    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
+    //display Image
+    implementation 'com.squareup.picasso:picasso:2.71828'
+    // Image library
+    implementation 'com.github.bumptech.glide:glide:4.15.1'
 
 
 }
