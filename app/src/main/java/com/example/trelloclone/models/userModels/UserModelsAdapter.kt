@@ -14,15 +14,11 @@ class UserModelsAdapter(val userModels: UserModels) :
     inner class UserModelViewHolder(val itemBinding: MaildatarecylerviewitemBinding) :
         RecyclerView.ViewHolder(itemBinding.root) {
         fun bindItem(task: UserX) {
-            itemBinding.ivImage?.setImageURI(Uri.parse(task.image))
-
+            itemBinding.ivImage.setImageURI(Uri.parse(task.image))
             Glide.with(itemView).load(task.image).into(itemBinding.ivImage)
-
-
-            itemBinding.title?.text = task.firstName
-            itemBinding.subtitle?.text = task.email
-            itemBinding.time?.text = task.birthDate
-
+            itemBinding.title.text = task.firstName
+            itemBinding.subtitle.text = task.email
+            itemBinding.time.text = task.birthDate
         }
 
     }
