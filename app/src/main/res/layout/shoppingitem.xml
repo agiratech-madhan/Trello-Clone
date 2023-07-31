@@ -49,8 +49,8 @@
                     android:id="@+id/productCostTextView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Product Cost: $49.99"
                     android:layout_weight="1"
+                    android:text="Product Cost: $49.99"
                     android:textColor="@color/black"
                     android:textSize="14sp" />
 

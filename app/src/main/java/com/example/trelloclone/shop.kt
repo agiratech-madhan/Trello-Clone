@@ -8,13 +8,16 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.trelloclone.adapters.AllProductsAdapter
 import com.example.trelloclone.constants.Constants
 import com.example.trelloclone.databinding.FragmentShopBinding
 import com.example.trelloclone.models.ShoppingModels.AllProducts
+import com.example.trelloclone.models.ShoppingModels.Product
 import com.example.trelloclone.network.ProductServices
+import com.example.trelloclone.services.ProductListListener
 import retrofit.Call
 import retrofit.Callback
 import retrofit.GsonConverterFactory
@@ -31,12 +34,13 @@ private const val ARG_PARAM2 = "param2"
  * Use the [shop.newInstance] factory method to
  * create an instance of this fragment.
  */
-class shop : Fragment() {
+class shop : Fragment(), ProductListListener {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
     private var binding: FragmentShopBinding? = null
     private var mContext: Context? = null
+    lateinit var listener: ProductListListener
 
     private var mProgressDialog: Dialog? = null
 
@@ -61,6 +65,7 @@ class shop : Fragment() {
         binding = FragmentShopBinding.inflate(inflater, container, false)
 
         getAllProducts(mContext!!, binding!!)
+        listener = this
         return binding?.root
     }
 
@@ -90,7 +95,7 @@ class shop : Fragment() {
                         hideProgressDialog()
                         /** The de-serialized response body of a successful response. */
                         val userList: AllProducts = response.body()
-                        val adapter = AllProductsAdapter(userList)
+                        val adapter = AllProductsAdapter(userList, listener)
                         binding?.shopGridView?.layoutManager = GridLayoutManager(mContext, 2)
                         // from Object class
                         binding?.shopGridView?.adapter = adapter
@@ -169,5 +174,10 @@ class shop : Fragment() {
         if (mProgressDialog != null) {
             mProgressDialog!!.dismiss()
         }
+    }
+
+    override fun onProductListItemClick(view: View, product: Product) {
+        Toast.makeText(requireContext(), product.title + "", Toast.LENGTH_SHORT).show()
+
     }
 }

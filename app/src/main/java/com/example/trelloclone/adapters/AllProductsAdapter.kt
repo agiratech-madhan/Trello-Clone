@@ -8,8 +8,12 @@ import com.bumptech.glide.Glide
 import com.example.trelloclone.databinding.ShoppingitemBinding
 import com.example.trelloclone.models.ShoppingModels.AllProducts
 import com.example.trelloclone.models.ShoppingModels.Product
+import com.example.trelloclone.services.ProductListListener
 
-class AllProductsAdapter(val allProducts: AllProducts) :
+class AllProductsAdapter(
+    val allProducts: AllProducts,
+    val productListListener: ProductListListener
+) :
     RecyclerView.Adapter<AllProductsAdapter.AllProductsViewHoler>() {
     inner class AllProductsViewHoler(val itemBinding: ShoppingitemBinding) :
         RecyclerView.ViewHolder(itemBinding.root) {
@@ -39,6 +43,9 @@ class AllProductsAdapter(val allProducts: AllProducts) :
 
     override fun onBindViewHolder(holder: AllProductsViewHoler, position: Int) {
         val productData = allProducts.products[position]
+        holder.itemBinding.root.setOnClickListener {
+            productListListener.onProductListItemClick(it, productData)
+        }
         holder.bindItem(productData)
     }
 }
