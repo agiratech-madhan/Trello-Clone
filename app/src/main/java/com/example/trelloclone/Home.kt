@@ -14,6 +14,7 @@ import com.example.trelloclone.databinding.FragmentHomeBinding
 import com.example.trelloclone.models.MailDataList
 import com.example.trelloclone.models.MainDataAdapter
 import com.example.trelloclone.models.userModels.UserModels
+import com.example.trelloclone.models.userModels.UserModelsAdapter
 import com.example.trelloclone.network.PhotoService
 import com.google.gson.Gson
 
@@ -46,7 +47,7 @@ class Home : Fragment() {
 
     }
 
-    private fun getMailInfo(context: Context) {
+    private fun getMailInfo(context: Context, binding: FragmentHomeBinding) {
 
         if (Constants.isNetworkAvailable(context)) {
             val retrofit: Retrofit = Retrofit.Builder().baseUrl(Constants.BASE_URL)
@@ -54,7 +55,7 @@ class Home : Fragment() {
                 .build()
 
             val service: PhotoService =
-                retrofit.create<PhotoService>(PhotoService::class.java)
+                retrofit.create(PhotoService::class.java)
             val listCall: Call<UserModels> = service.getUsers()
 
             listCall.enqueue(object : Callback<UserModels> {
@@ -72,8 +73,10 @@ class Home : Fragment() {
                         hideProgressDialog()
                         /** The de-serialized response body of a successful response. */
                         val userList: UserModels = response.body()
+                        val adapter = UserModelsAdapter(userList) // from Object class
+                        binding?.taskRv?.adapter = adapter
 
-                        Log.i("Response Result", "$userList")
+                        Log.i("Response Madhan Result", "$userList")
 //                        val weatherResponseJsonString = Gson().toJson(userList)
                         // Save the converted string to shared preferences
 //                        val editor = mSharedPreferences.edit()
@@ -118,6 +121,8 @@ class Home : Fragment() {
 
     }
 
+
+
     private fun showCustomProgressDialog() {
         mProgressDialog = Dialog(mContext!!)
 
@@ -140,9 +145,11 @@ class Home : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentHomeBinding.inflate(inflater, container, false)
-        val adapter = MainDataAdapter(MailDataList.mailList) // from Object class
-        binding?.taskRv?.adapter = adapter
-        getMailInfo(mContext!!)
+
+
+
+
+        getMailInfo(mContext!!, binding!!)
 
 //        val view = binding?.root
         // Inflate the layout for this fragment
